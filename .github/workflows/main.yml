@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  message_from_branch:
+    runs-on: ubuntu-latest
+    name: Get message from branch name
+    steps:
+      - name: Get branch name
+        id: branchname
+        uses: Devansh-Maurya/Github-Playground@v1
+        with:
+          branch-name: 'feature/test'
+      - name: Get the message
+        run: echo "The message body is ${{steps.branchname.outputs.body}}"
