@@ -1,0 +1,14 @@
+name: Get Email Message
+description: Get email body from branch name
+inputs:
+  branch-name:
+    description: 'Branch name'
+    required: true
+outputs:
+  subject:
+    description: Email subject
+  body:
+    description: Email body
+runs:
+  using: 'node12'
+  main: 'index.js'
