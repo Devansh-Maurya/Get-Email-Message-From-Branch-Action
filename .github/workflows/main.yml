@@ -7,8 +7,12 @@ jobs:
     steps:
       - name: Get branch name
         id: branchname
+        uses: actions/checkout@v2
+        run: echo ::set-output name=n:b_name::${GITHUB_REF#refs/*/}
+      - name: Get the message
+        id: branchmessage
         uses: Devansh-Maurya/Github-Playground@master
         with:
-          branch-name: 'pattern/test'
-      - name: Get the message
-        run: echo "The message body is ${{steps.branchname.outputs.body}}"
+          branch-name: ${{steps.branchname.outputs.b_name}}
+      - name: Print message
+        run: echo "The message body is ${{steps.branchmessage.outputs.body}}"
