@@ -10,10 +10,10 @@ try {
     var title = branch.substring(pos+1);
 
     var type = '';
-    if (tag.equalsIgnoreCase('pattern')) {
+    if (tag.toUpperCase() == 'pattern'.toUpperCase()) {
         type = 'pattern';
-    } else if (tag.equalsIgnoreCase('principle')) {
-        type = 'pattern';
+    } else if (tag.toUpperCase() == 'principle'.toUpperCase()) {
+        type = 'principle';
     }
 
     core.setOutput('subject', `New design ${type} added`);
