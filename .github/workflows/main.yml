@@ -6,10 +6,10 @@ jobs:
     name: Get message from branch name
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Get branch name
         id: branchname
-        run: echo ::set-output name=n:b_name::${GITHUB_REF#refs/*/}
+        run: echo ::set-output name=b_name::${GITHUB_REF#refs/*/}
       - name: Get the message
         id: branchmessage
         uses: Devansh-Maurya/Github-Playground@master
