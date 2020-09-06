@@ -9,6 +9,6 @@ jobs:
         id: branchname
         uses: Devansh-Maurya/Github-Playground@master
         with:
-          branch-name: 'feature/test'
+          branch-name: 'pattern/test'
       - name: Get the message
         run: echo "The message body is ${{steps.branchname.outputs.body}}"
