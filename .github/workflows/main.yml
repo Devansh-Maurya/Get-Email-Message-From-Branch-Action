@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Get branch name
         id: branchname
-        uses: Devansh-Maurya/Github-Playground@v1
+        uses: Devansh-Maurya/Github-Playground@master
         with:
           branch-name: 'feature/test'
       - name: Get the message
