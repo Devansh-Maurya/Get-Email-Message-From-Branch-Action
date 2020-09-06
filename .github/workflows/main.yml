@@ -6,7 +6,6 @@ jobs:
     name: Get message from branch name
     steps:
       - uses: actions/checkout@v2
-
       - name: Get branch name
         id: branchname
         run: echo ::set-output name=b_name::${GITHUB_REF#refs/*/}
