@@ -8,15 +8,18 @@ jobs:
     name: Get message from branch name
     steps:
       - uses: actions/checkout@v2
-      - name: Get branch name
-        id: branchname
+      - name: Get pull request info
+        id: prinfo
         run: |
-          echo ::set-output name=b_name::${{github.event.pull_request.head.ref}}
-          echo ${{ github.event.pull_request.title }}
+          echo ::set-output name=b_name::${{ github.event.pull_request.head.ref }}
+          echo ::set-output name=pr_title::${{ github.event.pull_request.title }}
+          echo ::set-output name=pr_url::${{ github.event.pull_request.html_url }}
+          echo ${{ github.event.pull_request.html_url }}
       - name: Get the message
         id: branchmessage
         uses: Devansh-Maurya/Github-Playground@master
         with:
-          branch-name: ${{steps.branchname.outputs.b_name}}
+          branch-name: ${{steps.prinfo.outputs.b_name}}
+          pr-title: ${{ steps.prinfo.outputs.pr_title}}
       - name: Print message
         run: echo "The message body is ${{steps.branchmessage.outputs.body}}"
