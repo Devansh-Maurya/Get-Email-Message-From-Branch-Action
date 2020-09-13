@@ -16,8 +16,8 @@ try {
         type = 'principle';
     }
 
-    core.setOutput('subject', `New design ${type} added`);
-    core.setOutput('body', `A new design ${type}: ${title} has been added`);
+    core.setOutput('subject', `Request to add a new design ${type}`);
+    core.setOutput('body', `A request for a new design ${type}: ${title} has been made`);
 } catch (error) {
     console.error(error.message);
     core.setFailed(error.message);
