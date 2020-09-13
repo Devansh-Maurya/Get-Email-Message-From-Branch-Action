@@ -4,6 +4,8 @@ inputs:
   branch-name:
     description: 'Branch name'
     required: true
+  pr-title:
+    description: 'Pull request title'
 outputs:
   subject:
     description: Email subject
