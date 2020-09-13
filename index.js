@@ -17,11 +17,14 @@ try {
     }
 
     var prTitle = core.getInput('pr-title');
+    var prUrl = core.getInput('pr-url')
+
     var body = `A request for a new design ${type}: ${title} has been made\n\n` +
-                `Pull request title: ${prTitle}`
+                `Pull request title: ${prTitle}\n\n` +
+                `Url: ${prUrl}`;
 
     core.setOutput('subject', `Request to add a new design ${type}`);
-    core.setOutput('body', );
+    core.setOutput('body', body);
 } catch (error) {
     console.error(error.message);
     core.setFailed(error.message);
