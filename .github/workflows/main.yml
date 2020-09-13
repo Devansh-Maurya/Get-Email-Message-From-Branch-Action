@@ -8,7 +8,7 @@ jobs:
       - name: Get branch name
         id: branchname
         run: |
-          echo ::set-output name=b_name::${GITHUB_REF}
+          echo ::set-output name=b_name::${{github.event.pull_request.title}}
           echo ${{ github.event.pull_request.title }}
       - name: Get the message
         id: branchmessage
