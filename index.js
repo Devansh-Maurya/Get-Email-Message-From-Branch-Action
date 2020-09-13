@@ -16,8 +16,12 @@ try {
         type = 'principle';
     }
 
+    var prTitle = core.getInput('pr-title');
+    var body = `A request for a new design ${type}: ${title} has been made\n\n` +
+                `Pull request title: ${prTitle}`
+
     core.setOutput('subject', `Request to add a new design ${type}`);
-    core.setOutput('body', `A request for a new design ${type}: ${title} has been made`);
+    core.setOutput('body', );
 } catch (error) {
     console.error(error.message);
     core.setFailed(error.message);
