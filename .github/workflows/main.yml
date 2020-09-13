@@ -10,7 +10,6 @@ jobs:
         run: |
           echo ::set-output name=b_name::${GITHUB_REF}
           echo ${{ github.event.pull_request.title }}
-          echo ${{toJson(github)}}
       - name: Get the message
         id: branchmessage
         uses: Devansh-Maurya/Github-Playground@master
