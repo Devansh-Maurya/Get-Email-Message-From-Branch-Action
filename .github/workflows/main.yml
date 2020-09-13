@@ -1,7 +1,6 @@
 on:
   pull_request:
     types: [opened]
-
 jobs:
   message_from_branch:
     runs-on: ubuntu-latest
