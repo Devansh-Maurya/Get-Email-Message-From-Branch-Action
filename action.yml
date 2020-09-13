@@ -6,6 +6,8 @@ inputs:
     required: true
   pr-title:
     description: 'Pull request title'
+  pr-link:
+    description: 'Pull request link'
 outputs:
   subject:
     description: Email subject
