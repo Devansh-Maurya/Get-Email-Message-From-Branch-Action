@@ -24,4 +24,3 @@ jobs:
           pr-url: ${{ steps.prinfo.outputs.pr_url}}
       - name: Print message
         run: echo "The message body is ${{steps.branchmessage.outputs.body}}"
-        
