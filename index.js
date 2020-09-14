@@ -1,5 +1,9 @@
+#! /usr/bin/env node
+
 const core = require('@actions/core');
 const github = require('@actions/github');
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 try {
     const branch = core.getInput('branch-name');
@@ -19,12 +23,26 @@ try {
     var prTitle = core.getInput('pr-title');
     var prUrl = core.getInput('pr-url')
 
+    var subject = `Request to add a new design ${type}`;
     var body = `A request for a new design ${type}: ${title} has been made\n\n` +
                 `Pull request title: ${prTitle}\n\n` +
                 `Url: ${prUrl}`;
 
-    core.setOutput('subject', `Request to add a new design ${type}`);
+    core.setOutput('subject', subject);
     core.setOutput('body', body);
+
+    const msg = {
+        to: 'devansh233@gmail.com',
+        from: process.env.SENDER_EMAIL,
+        subject: subject,
+        text: body
+    };
+    
+    sgMail
+        .send(msg)
+        .then(() => console.log('Mail sent successfully'))
+        .catch(error => console.error(error.toString()));
+
 } catch (error) {
     console.error(error.message);
     core.setFailed(error.message);

@@ -1,5 +1,8 @@
-name: Get Email Message
-description: Get email body from branch name
+name: Send Email on PR open
+description: Get email body from branch name and send it
+env:
+  SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+  SENDER_EMAIL: ${{ secrets.MAIL_USERNAME }}
 inputs:
   branch-name:
     description: 'Branch name'

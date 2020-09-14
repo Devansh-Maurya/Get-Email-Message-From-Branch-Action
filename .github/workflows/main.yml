@@ -24,14 +24,3 @@ jobs:
           pr-url: ${{ steps.prinfo.outputs.pr_url}}
       - name: Print message
         run: echo "The message body is ${{steps.premail.outputs.body}}"
-      - name: Send mail
-        uses: dawidd6/action-send-mail@v2
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          subject: ${{ steps.premail.outputs.subject }}
-          body: ${{ steps.premail.outputs.body }}
-          to: devansh233@gmail.com
-          from: DPP
