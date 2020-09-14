@@ -1,8 +1,5 @@
 name: Send Email on PR open
 description: Get email body from branch name and send it
-env:
-  SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
-  SENDER_EMAIL: ${{ secrets.MAIL_USERNAME }}
 inputs:
   branch-name:
     description: 'Branch name'
@@ -11,6 +8,10 @@ inputs:
     description: 'Pull request title'
   pr-url:
     description: 'Pull request url'
+  sendgrid-api-key:
+    description: 'API key needed for sending emails'
+  sender-email:
+    description: 'Sender email'
 outputs:
   subject:
     description: Email subject

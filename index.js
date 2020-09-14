@@ -3,7 +3,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 try {
     const branch = core.getInput('branch-name');
@@ -31,9 +30,14 @@ try {
     core.setOutput('subject', subject);
     core.setOutput('body', body);
 
+    var apiKey = core.getInput('sendgrid-api-key');
+    var senderEmail = core.getInput('sender-email');
+
+    sgMail.setApiKey(apiKey);
+
     const msg = {
         to: 'devansh233@gmail.com',
-        from: process.env.SENDER_EMAIL,
+        from: senderEmail,
         subject: subject,
         text: body
     };

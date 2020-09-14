@@ -22,5 +22,7 @@ jobs:
           branch-name: ${{steps.prinfo.outputs.b_name}}
           pr-title: ${{ steps.prinfo.outputs.pr_title}}
           pr-url: ${{ steps.prinfo.outputs.pr_url}}
+          sendgrid-api-key: ${{ secrets.SENDGRID_API_KEY }}
+          sender-email: ${{ secrets.MAIL_USERNAME }}
       - name: Print message
         run: echo "The message body is ${{steps.premail.outputs.body}}"
