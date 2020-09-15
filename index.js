@@ -23,7 +23,7 @@ try {
     }
 
     var subject = `Pull request to add a new design ${type} to ${repo}`;
-    var body = `A pull request to add a new design ${type}: ${title} has been made.\n\n` +
+    var body = `A pull request to add a new design ${type} "${title}" has been made.\n\n` +
                 `PR Title: ${prTitle}\n\n` +
                 `View Here: ${prUrl}`;
 
