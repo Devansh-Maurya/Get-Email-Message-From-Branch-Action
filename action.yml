@@ -1,6 +1,9 @@
-name: Send Email on PR open
+name: Get customised email message with PR info
 description: Get email body from branch name and send it
 inputs:
+  repo-name:
+    description: 'Repository name'
+    required: true
   branch-name:
     description: 'Branch name'
     required: true
@@ -8,10 +11,6 @@ inputs:
     description: 'Pull request title'
   pr-url:
     description: 'Pull request url'
-  sendgrid-api-key:
-    description: 'API key needed for sending emails'
-  sender-email:
-    description: 'Sender email'
 outputs:
   subject:
     description: Email subject

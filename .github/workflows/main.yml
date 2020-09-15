@@ -5,9 +5,10 @@ on:
 jobs:
   message_from_branch:
     runs-on: ubuntu-latest
-    name: Get message from branch name
+    name: Send customised mail on PR open
     steps:
       - uses: actions/checkout@v2
+      
       - name: Get pull request info
         id: prinfo
         run: |
@@ -15,17 +16,19 @@ jobs:
           echo ::set-output name=pr_title::${{ github.event.pull_request.title }}
           echo ::set-output name=pr_url::${{ github.event.pull_request.html_url }}
           echo ${{ github.event.pull_request.html_url }}
+
       - name: Get the message
         id: premail
         uses: Devansh-Maurya/Github-Playground@master
         with:
+          repo-name: ${{ github.repository }}
           branch-name: ${{steps.prinfo.outputs.b_name}}
           pr-title: ${{ steps.prinfo.outputs.pr_title}}
           pr-url: ${{ steps.prinfo.outputs.pr_url}}
-          sendgrid-api-key: ${{ secrets.SENDGRID_API_KEY }}
-          sender-email: ${{ secrets.MAIL_USERNAME }}
-      - name: Print message
+
+      - name: Print message body
         run: echo "The message body is ${{steps.premail.outputs.body}}"
+
       - name: Send mail
         uses: dawidd6/action-send-mail@v2
         with:
