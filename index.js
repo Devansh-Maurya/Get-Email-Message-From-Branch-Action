@@ -4,26 +4,29 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-    const repo = core.getInput('repo-name');
-    const branch = core.getInput('branch-name');
+    const repo = core.getInput('repo');
+    const groups = core.getInput('groups');
+    const branch = core.getInput('branch');
     const prTitle = core.getInput('pr-title');
-    const prUrl = core.getInput('pr-url')
-
-    console.log(`Branch: ${branch}`);
+    const prUrl = core.getInput('pr-url');
 
     var pos = branch.indexOf('/');
-    var tag = branch.substring(0, pos);
+    var branchGroup = branch.substring(0, pos);
     var title = branch.substring(pos+1);
 
     var type = '';
-    if (tag.toUpperCase() == 'pattern'.toUpperCase()) {
-        type = 'pattern';
-    } else if (tag.toUpperCase() == 'principle'.toUpperCase()) {
-        type = 'principle';
-    }
+
+    console.log(groups)
+
+    groups.split(',').forEach(function(group) {
+        console.log(group)
+        if (branchGroup.toUpperCase() == group.toUpperCase()) {
+            type = group;
+        }
+    });
 
     var subject = `Pull request to add a new design ${type} to ${repo}`;
-    var body = `A pull request to add a new design ${type} "${title}" has been made.\n\n` +
+    var body = `A pull request to add a new design ${type} "${title}"qq  has been made.\n\n` +
                 `PR Title: ${prTitle}\n\n` +
                 `View Here: ${prUrl}`;
 

@@ -4,6 +4,8 @@ inputs:
   repo-name:
     description: 'Repository name'
     required: true
+  groups:
+    description: 'Branch groups (as CSV) for which you want to get email message data'
   branch-name:
     description: 'Branch name'
     required: true

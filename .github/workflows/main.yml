@@ -8,7 +8,7 @@ jobs:
     name: Send customised mail on PR open
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Get pull request info
         id: prinfo
         run: |
@@ -21,8 +21,9 @@ jobs:
         id: premail
         uses: Devansh-Maurya/Github-Playground@master
         with:
-          repo-name: ${{ github.repository }}
-          branch-name: ${{steps.prinfo.outputs.b_name}}
+          repo: ${{ github.repository }}
+          groups: pattern,principle
+          branch: ${{steps.prinfo.outputs.b_name}}
           pr-title: ${{ steps.prinfo.outputs.pr_title}}
           pr-url: ${{ steps.prinfo.outputs.pr_url}}
 
