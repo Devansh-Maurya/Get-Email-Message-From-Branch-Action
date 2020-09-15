@@ -1,7 +1,4 @@
-#! /usr/bin/env node
-
 const core = require('@actions/core');
-const github = require('@actions/github');
 
 try {
     const repo = core.getInput('repo');
@@ -16,10 +13,7 @@ try {
 
     var type = '';
 
-    console.log(groups)
-
     groups.split(',').forEach(function(group) {
-        console.log(group)
         if (branchGroup.toUpperCase() == group.toUpperCase()) {
             type = group;
         }
