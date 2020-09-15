@@ -32,7 +32,7 @@ jobs:
           server_address: smtp.gmail.com
           server_port: 465
           username: ${{ secrets.MAIL_USERNAME }}
-          passoword: ${{ secrets.MAIL_PASSWORD }}
+          password: ${{ secrets.MAIL_PASSWORD }}
           subject: ${{ steps.premail.outputs.subject }}
           body: ${{ steps.premail.outputs.body }}
           to: devansh233@gmail.com
