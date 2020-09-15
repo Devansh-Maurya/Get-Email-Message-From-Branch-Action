@@ -33,6 +33,8 @@ try {
     var apiKey = core.getInput('sendgrid-api-key');
     var senderEmail = core.getInput('sender-email');
 
+    console.log(senderEmail)
+
     sgMail.setApiKey(apiKey);
 
     const msg = {
