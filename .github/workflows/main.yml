@@ -19,7 +19,7 @@ jobs:
 
       - name: Get the message
         id: premail
-        uses: Devansh-Maurya/Github-Playground@master
+        uses: Devansh-Maurya/Get-Email-Message-From-Branch-Action@v3
         with:
           repo: ${{ github.repository }}
           groups: pattern,principle
