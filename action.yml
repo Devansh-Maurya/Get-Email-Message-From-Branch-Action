@@ -1,5 +1,9 @@
-name: Get customised email message with PR info
-description: Get email body from branch name and send it
+name: Get custom email message with PR info
+description: Get email body with PR information from branch name
+author: Devansh-Maurya
+branding:
+  icon: mail
+  color: yellow
 inputs:
   repo-name:
     description: 'Repository name'
