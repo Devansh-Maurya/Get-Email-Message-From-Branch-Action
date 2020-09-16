@@ -1,6 +1,6 @@
 # Get custom email message with PR info
 
-Provides you a well formated email subject and body using branch name used for Pull Request and other information obtained from the pull request.
+Provides a well formated email subject and body using branch name used for Pull Request and other information obtained from the pull request.
 
 ```yaml
 inputs:
@@ -21,5 +21,5 @@ outputs:
   subject:
     description: 'Email subject'
   body:
-    description: Email body
+    description: 'Email body'
 ```  
