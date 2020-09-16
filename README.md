@@ -2,6 +2,21 @@
 
 Provides a well formated email subject and body using branch name used for Pull Request and other information obtained from the pull request.
 
+### Usage
+```yaml
+name: Get message
+uses: Devansh-Maurya/Get-Email-Message-From-Branch-Action@v3
+with:
+  repo: ${{ github.repository }}
+  groups: group1,gropup2
+  branch: ${{ github.event.pull_request.head.ref }}
+  pr-title: ${{ github.event.pull_request.title }}
+  pr-url: ${{ github.event.pull_request.html_url }}
+```
+
+
+### Documentation
+
 ```yaml
 inputs:
   repo-name:
