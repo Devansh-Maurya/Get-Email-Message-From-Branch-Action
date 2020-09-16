@@ -38,3 +38,4 @@ outputs:
   body:
     description: 'Email body'
 ```  
+
